@@ -1,0 +1,9 @@
+Vamos a crear un archivo de prueba
+Aqui les dejo los archivos que vamos a utilizar
+
+git init
+
+git config --global user.name "RobCazares"
+
+git config --global user.email "roberto.cazares@microsip.com"
+

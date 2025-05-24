@@ -7,3 +7,16 @@ git config --global user.name "RobCazares"
 
 git config --global user.email "roberto.cazares@microsip.com"
 
+git add .
+
+git status
+
+git commit -m "Mi primer commit"
+
+Prueba de conexión
+
+Actualiza archivo
+
+git add .
+git commit -m "commit"
+git push origin main

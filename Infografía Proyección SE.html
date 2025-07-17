@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justificación Financiera Proyecciones 2026-2028 para Microsip</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN for charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            color: #334155; /* Slate 700 */
+        }
+        .section-title {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+            color: #1e293b; /* Slate 900 */
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #3b82f6; /* Blue 500 */
+            border-radius: 9999px; /* rounded-full */
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1.5rem; /* rounded-3xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .icon-large {
+            font-size: 3rem; /* text-5xl */
+            margin-bottom: 1rem;
+            color: #3b82f6; /* Blue 500 */
+        }
+        .trend-arrow {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+        .trend-historic {
+            color: #ef4444; /* Red 500 */
+        }
+        .trend-projected {
+            color: #22c55e; /* Green 500 */
+        }
+        .bg-gradient-blue {
+            background: linear-gradient(to right, #3b82f6, #60a5fa); /* Blue 500 to Blue 400 */
+        }
+        .summary-box {
+            background-color: #e0f2fe; /* Light blue */
+            border-left: 4px solid #3b82f6; /* Blue border */
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            color: #1e40af; /* Darker blue text */
+        }
+        .table-header {
+            background-color: #e0f2fe; /* Light blue for table header */
+            color: #1e40af; /* Darker blue text for header */
+        }
+        .table-row-even {
+            background-color: #f8fafc; /* Lighter background for even rows */
+        }
+        .table-row-odd {
+            background-color: #ffffff; /* White background for odd rows */
+        }
+        .table-total-row {
+            font-weight: 700; /* Bold for total row */
+            background-color: #bfdbfe; /* Medium blue for total row */
+            color: #1e40af; /* Darker blue text for total row */
+        }
+        /* Adjusted chart height for better visualization */
+        .chart-container {
+            position: relative;
+            height: 320px; /* Reduced height from h-96 (384px) to h-80 (320px) */
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <div class="max-w-6xl mx-auto py-8">
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl sm:text-6xl font-extrabold text-slate-900 leading-tight mb-4">
+                📊 Justificación Financiera
+            </h1>
+            <p class="text-3xl sm:text-4xl font-semibold text-blue-600">Proyecciones 2026–2028 para Microsip</p>
+            <p class="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">
+                Un análisis estratégico y conservador para la planificación futura de Microsip.
+            </p>
+        </header>
+
+        <!-- General Framework Section -->
+        <section class="mb-12">
+            <h2 class="section-title">Marco General</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card text-center">
+                    <span class="icon-large">📅</span>
+                    <h3 class="text-xl font-semibold mb-2 text-slate-800">Datos Históricos</h3>
+                    <p class="text-slate-600">Base 2021–2025.</p>
+                </div>
+                <div class="card text-center">
+                    <span class="icon-large">📈</span>
+                    <h3 class="text-xl font-semibold mb-2 text-slate-800">Comportamiento por Línea</h3>
+                    <p class="text-slate-600">Crecimiento y contracción específicos.</p>
+                </div>
+                <div class="card text-center">
+                    <span class="icon-large">📉</span>
+                    <h3 class="text-xl font-semibold mb-2 text-slate-800">Ley de Rendimientos Decrecientes</h3>
+                    <p class="text-slate-600">Menor elasticidad a mayor volumen.</p>
+                </div>
+                <div class="card text-center">
+                    <span class="icon-large">📊</span>
+                    <h3 class="text-xl font-semibold mb-2 text-slate-800">Tendencia Suavizada</h3>
+                    <p class="text-slate-600">Ajuste por juicio experto y madurez.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analysis and Justification by Line Section -->
+        <section class="mb-12">
+            <h2 class="section-title">Análisis y Justificación por Línea</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <!-- A. Venta de sistemas (Licencias tradicionales) -->
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <span class="icon-large mr-4">📦</span>
+                        <h3 class="text-2xl font-bold text-slate-800">Venta de Sistemas (Licencias Tradicionales)</h3>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-lg font-semibold text-slate-700 mb-2">Histórico (2023-2025):</p>
+                        <p class="text-red-600 text-xl font-bold flex items-center">
+                            <span class="trend-arrow">⬇️</span> Descenso Sostenido
+                        </p>
+                        <ul class="list-disc list-inside text-slate-600 ml-4">
+                            <li>2023: -8.93%</li>
+                            <li>2024: -10.46%</li>
+                            <li>2025: -14.69%</li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-lg font-semibold text-slate-700 mb-2">Proyección (2026-2028):</p>
+                        <p class="text-green-600 text-xl font-bold flex items-center">
+                            <span class="trend-arrow">↘️</span> Caída Suavizada
+                        </p>
+                        <ul class="list-disc list-inside text-slate-600 ml-4">
+                            <li>2026: -6%</li>
+                            <li>2027: -4%</li>
+                            <li>2028: -2%</li>
+                        </ul>
+                    </div>
+                    <p class="text-slate-700 mt-4" id="justification-A">
+                        <span class="font-semibold">Justificación:</span> Se espera una transición hacia modelos de suscripción (SaaS), lo que reduce la venta directa de licencias perpetuas. Es un reflejo de la curva de adopción tecnológica, donde los clientes tempranos ya fueron captados y se ralentiza la incorporación de nuevos. Se aplica la metodología S-curve adoption y análisis de ciclo de vida del producto.
+                    </p>
+                    <button class="mt-4 px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300" onclick="summarizeJustification('justification-A', 'summary-A', this)">
+                        ✨ Resumir Justificación
+                    </button>
+                    <div id="summary-A" class="summary-box hidden"></div>
+                </div>
+
+                <!-- B. Actualizaciones -->
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <span class="icon-large mr-4">🔄</span>
+                        <h3 class="text-2xl font-bold text-slate-800">Actualizaciones</h3>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-lg font-semibold text-slate-700 mb-2">Histórico (2023-2025):</p>
+                        <p class="text-orange-600 text-xl font-bold flex items-center">
+                            <span class="trend-arrow">📈</span> Volátil
+                        </p>
+                        <ul class="list-disc list-inside text-slate-600 ml-4">
+                            <li>2023: -25.70%</li>
+                            <li>2024: +16.04%</li>
+                            <li>2025: -7.13%</li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-lg font-semibold text-slate-700 mb-2">Proyección (2026-2028):</p>
+                        <p class="text-green-600 text-xl font-bold flex items-center">
+                            <span class="trend-arrow">➡️</span> Crecimiento Moderado y Estable
+                        </p>
+                        <ul class="list-disc list-inside text-slate-600 ml-4">
+                            <li>2026: +3%</li>
+                            <li>2027: +4%</li>
+                            <li>2028: +5%</li>
+                        </ul>
+                    </div>
+                    <p class="text-slate-700 mt-4" id="justification-B">
+                        <span class="font-semibold">Justificación:</span> El segmento es recurrente pero sensible al reemplazo tecnológico. Estimamos que la base de clientes se estabiliza, y se mantiene un ingreso constante por soporte y actualización, con ligeras mejoras por crecimiento orgánico o ajuste de tarifas. Aplica el enfoque de tasa de renovación ajustada (adjusted renewal rate).
+                    </p>
+                    <button class="mt-4 px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300" onclick="summarizeJustification('justification-B', 'summary-B', this)">
+                        ✨ Resumir Justificación
+                    </button>
+                    <div id="summary-B" class="summary-box hidden"></div>
+                </div>
+
+                <!-- C. Suscripciones módulos NG -->
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <span class="icon-large mr-4">☁️</span>
+                        <h3 class="text-2xl font-bold text-slate-800">Suscripciones Módulos NG (SaaS)</h3>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-lg font-semibold text-slate-700 mb-2">Histórico (2022-2025):</p>
+                        <p class="text-blue-600 text-xl font-bold flex items-center">
+                            <span class="trend-arrow">🚀</span> Alza con Desaceleración Saludable
+                        </p>
+                        <ul class="list-disc list-inside text-slate-600 ml-4">
+                            <li>2022: +41.52%</li>
+                            <li>2025: +18.01%</li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-lg font-semibold text-slate-700 mb-2">Proyección (2026-2028):</p>
+                        <p class="text-green-600 text-xl font-bold flex items-center">
+                            <span class="trend-arrow">↗️</span> Crecimiento Conservador
+                        </p>
+                        <ul class="list-disc list-inside text-slate-600 ml-4">
+                            <li>2026: +14.00%</li>
+                            <li>2027: +12.00%</li>
+                            <li>2028: +10.00%</li>
+                        </ul>
+                    </div>
+                    <p class="text-slate-700 mt-4" id="justification-C">
+                        <span class="font-semibold">Justificación:</span> Este rubro representa la principal palanca de escalabilidad del modelo SaaS. El mercado ya no crece al ritmo inicial (post-lanzamiento), pero se proyecta una etapa de maduración con crecimiento sostenido por expansión natural y retención. Justificado bajo el modelo Cohort Revenue Analysis y curva de madurez de producto.
+                    </p>
+                    <button class="mt-4 px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300" onclick="summarizeJustification('justification-C', 'summary-C', this)">
+                        ✨ Resumir Justificación
+                    </button>
+                    <div id="summary-C" class="summary-box hidden"></div>
+                </div>
+
+                <!-- D. Suscripciones servicios complementarios -->
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <span class="icon-large mr-4">➕</span>
+                        <h3 class="text-2xl font-bold text-slate-800">Suscripciones Servicios Complementarios</h3>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-lg font-semibold text-slate-700 mb-2">Histórico (2023-2025):</p>
+                        <p class="text-purple-600 text-xl font-bold flex items-center">
+                            <span class="trend-arrow">✨</span> Alta Expansión Reciente
+                        </p>
+                        <ul class="list-disc list-inside text-slate-600 ml-4">
+                            <li>2023: $0.96</li>
+                            <li>2025: $1.92</li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-lg font-semibold text-slate-700 mb-2">Proyección (2026-2028):</p>
+                        <p class="text-green-600 text-xl font-bold flex items-center">
+                            <span class="trend-arrow">⬆️</span> Potencial Emergente
+                        </p>
+                        <ul class="list-disc list-inside text-slate-600 ml-4">
+                            <li>2026: +20.00%</li>
+                            <li>2027: +15.00%</li>
+                            <li>2028: +10.00%</li>
+                        </ul>
+                    </div>
+                    <p class="text-slate-700 mt-4" id="justification-D">
+                        <span class="font-semibold">Justificación:</span> Rubro emergente con alto potencial, pero se modera para evitar sobreproyección. Refleja el impacto de nuevas unidades de negocio, con gradual aceptación en el mercado. Aplicamos un enfoque Bottom-Up, basado en adopción progresiva de servicios añadidos (e.g., soporte premium, integraciones, analítica).
+                    </p>
+                    <button class="mt-4 px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300" onclick="summarizeJustification('justification-D', 'summary-D', this)">
+                        ✨ Resumir Justificación
+                    </button>
+                    <div id="summary-D" class="summary-box hidden"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Existing Section: PROYECCIÓN SIN SUSCRIPCIÓN ESPECIAL -->
+        <section class="mb-12">
+            <h2 class="section-title">PROYECCIÓN SIN SUSCRIPCIÓN ESPECIAL</h2>
+            <div class="card p-6 mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Tabla de Proyecciones Financieras (Valores en Millones de Pesos)</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <thead>
+                            <tr class="table-header">
+                                <th class="py-3 px-6 text-left">Conceptos</th>
+                                <th class="py-3 px-6 text-center">2021</th>
+                                <th class="py-3 px-6 text-center">2022</th>
+                                <th class="py-3 px-6 text-center">2023</th>
+                                <th class="py-3 px-6 text-center">2024</th>
+                                <th class="py-3 px-6 text-center">2025</th>
+                                <th class="py-3 px-6 text-center">2026</th>
+                                <th class="py-3 px-6 text-center">2027</th>
+                                <th class="py-3 px-6 text-center">2028</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700 text-sm font-light">
+                            <tr class="table-row-odd">
+                                <td class="py-3 px-6 text-left font-semibold">Venta de sistemas</td>
+                                <td class="py-3 px-6 text-center">$14.60</td>
+                                <td class="py-3 px-6 text-center">$16.80</td>
+                                <td class="py-3 px-6 text-center">$15.30</td>
+                                <td class="py-3 px-6 text-center">$13.70</td>
+                                <td class="py-3 px-6 text-center">$11.69</td>
+                                <td class="py-3 px-6 text-center">$10.52</td>
+                                <td class="py-3 px-6 text-center">$10.52</td>
+                                <td class="py-3 px-6 text-center">$10.52</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="py-3 px-6 text-left font-semibold">Actualizaciones</td>
+                                <td class="py-3 px-6 text-center">$36.60</td>
+                                <td class="py-3 px-6 text-center">$53.70</td>
+                                <td class="py-3 px-6 text-center">$39.90</td>
+                                <td class="py-3 px-6 text-center">$46.30</td>
+                                <td class="py-3 px-6 text-center">$43.00</td>
+                                <td class="py-3 px-6 text-center">$39.13</td>
+                                <td class="py-3 px-6 text-center">$39.13</td>
+                                <td class="py-3 px-6 text-center">$39.13</td>
+                            </tr>
+                            <tr class="table-row-odd">
+                                <td class="py-3 px-6 text-left font-semibold">Suscripciones módulos NG</td>
+                                <td class="py-3 px-6 text-center">$17.34</td>
+                                <td class="py-3 px-6 text-center">$24.54</td>
+                                <td class="py-3 px-6 text-center">$31.14</td>
+                                <td class="py-3 px-6 text-center">$37.98</td>
+                                <td class="py-3 px-6 text-center">$44.82</td>
+                                <td class="py-3 px-6 text-center">$51.09</td>
+                                <td class="py-3 px-6 text-center">$57.23</td>
+                                <td class="py-3 px-6 text-center">$62.95</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="py-3 px-6 text-left font-semibold">Suscripciones servicios comp</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">$0.96</td>
+                                <td class="py-3 px-6 text-center">$1.50</td>
+                                <td class="py-3 px-6 text-center">$1.92</td>
+                                <td class="py-3 px-6 text-center">$2.30</td>
+                                <td class="py-3 px-6 text-center">$2.21</td>
+                                <td class="py-3 px-6 text-center">$2.11</td>
+                            </tr>
+                            <tr class="table-total-row">
+                                <td class="py-3 px-6 text-left font-bold">Total ingresos</td>
+                                <td class="py-3 px-6 text-center font-bold">$80.10</td>
+                                <td class="py-3 px-6 text-center font-bold">$111.40</td>
+                                <td class="py-3 px-6 text-center font-bold">$108.70</td>
+                                <td class="py-3 px-6 text-center font-bold">$125.80</td>
+                                <td class="py-3 px-6 text-center font-bold">$132.59</td>
+                                <td class="py-3 px-6 text-center font-bold">$103.05</td>
+                                <td class="py-3 px-6 text-center font-bold">$109.08</td>
+                                <td class="py-3 px-6 text-center font-bold">$114.71</td>
+                            </tr>
+                            <!-- Growth rates -->
+                            <tr class="table-row-odd">
+                                <td class="py-3 px-6 text-left font-semibold">Venta de sistemas (% crecimiento)</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">15.07%</td>
+                                <td class="py-3 px-6 text-center">-8.93%</td>
+                                <td class="py-3 px-6 text-center">-10.46%</td>
+                                <td class="py-3 px-6 text-center">-14.69%</td>
+                                <td class="py-3 px-6 text-center">-10.00%</td>
+                                <td class="py-3 px-6 text-center">-10.00%</td>
+                                <td class="py-3 px-6 text-center">-10.00%</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="py-3 px-6 text-left font-semibold">Actualizaciones (% crecimiento)</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">46.72%</td>
+                                <td class="py-3 px-6 text-center">-25.70%</td>
+                                <td class="py-3 px-6 text-center">16.04%</td>
+                                <td class="py-3 px-6 text-center">-7.13%</td>
+                                <td class="py-3 px-6 text-center">-9.00%</td>
+                                <td class="py-3 px-6 text-center">-9.00%</td>
+                                <td class="py-3 px-6 text-center">-9.00%</td>
+                            </tr>
+                            <tr class="table-row-odd">
+                                <td class="py-3 px-6 text-left font-semibold">Suscripciones módulos NG (% crecimiento)</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">41.52%</td>
+                                <td class="py-3 px-6 text-center">26.89%</td>
+                                <td class="py-3 px-6 text-center">21.97%</td>
+                                <td class="py-3 px-6 text-center">18.01%</td>
+                                <td class="py-3 px-6 text-center">14.00%</td>
+                                <td class="py-3 px-6 text-center">12.00%</td>
+                                <td class="py-3 px-6 text-center">10.00%</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="py-3 px-6 text-left font-semibold">Suscripciones servicios comp (% crecimiento)</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">56.00%</td>
+                                <td class="py-3 px-6 text-center">28.00%</td>
+                                <td class="py-3 px-6 text-center">20.00%</td>
+                                <td class="py-3 px-6 text-center">15.00%</td>
+                                <td class="py-3 px-6 text-center">10.00%</td>
+                            </tr>
+                            <tr class="table-total-row">
+                                <td class="py-3 px-6 text-left font-bold">Total ingresos (% crecimiento)</td>
+                                <td class="py-3 px-6 text-center font-bold">-</td>
+                                <td class="py-3 px-6 text-center font-bold">39.1%</td>
+                                <td class="py-3 px-6 text-center font-bold">-2.4%</td>
+                                <td class="py-3 px-6 text-center font-bold">15.7%</td>
+                                <td class="py-3 px-6 text-center font-bold">5.4%</td>
+                                <td class="py-3 px-6 text-center font-bold">-22.3%</td>
+                                <td class="py-3 px-6 text-center font-bold">5.9%</td>
+                                <td class="py-3 px-6 text-center font-bold">5.2%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card mt-8 p-6 mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Gráfico de Total de Ingresos (2021-2028 - SIN Suscripción Especial)</h3>
+                <div class="chart-container">
+                    <canvas id="totalRevenueChartSinSuscripcionEspecial"></canvas>
+                </div>
+            </div>
+
+            <div class="card mt-8 p-6">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Gráfico de Proyecciones por Línea de Negocio (2026-2028 - SIN Suscripción Especial)</h3>
+                <div class="chart-container">
+                    <canvas id="lineItemProjectionChartSinSuscripcionEspecial"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW Section: PROYECCIÓN CON SUSCRIPCIÓN ESPECIAL -->
+        <section class="mb-12">
+            <h2 class="section-title">PROYECCIÓN CON SUSCRIPCIÓN ESPECIAL</h2>
+            <div class="card p-6 mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Tabla de Proyecciones Financieras (Valores en Millones de Pesos - CON Suscripción Especial)</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <thead>
+                            <tr class="table-header">
+                                <th class="py-3 px-6 text-left">Conceptos</th>
+                                <th class="py-3 px-6 text-center">2021</th>
+                                <th class="py-3 px-6 text-center">2022</th>
+                                <th class="py-3 px-6 text-center">2023</th>
+                                <th class="py-3 px-6 text-center">2024</th>
+                                <th class="py-3 px-6 text-center">2025</th>
+                                <th class="py-3 px-6 text-center">2026</th>
+                                <th class="py-3 px-6 text-center">2027</th>
+                                <th class="py-3 px-6 text-center">2028</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700 text-sm font-light">
+                            <tr class="table-row-odd">
+                                <td class="py-3 px-6 text-left font-semibold">Venta de sistemas</td>
+                                <td class="py-3 px-6 text-center">$14.60</td>
+                                <td class="py-3 px-6 text-center">$16.80</td>
+                                <td class="py-3 px-6 text-center">$15.30</td>
+                                <td class="py-3 px-6 text-center">$13.70</td>
+                                <td class="py-3 px-6 text-center">$11.69</td>
+                                <td class="py-3 px-6 text-center">$0.00</td>
+                                <td class="py-3 px-6 text-center">$0.00</td>
+                                <td class="py-3 px-6 text-center">$0.00</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="py-3 px-6 text-left font-semibold">Actualizaciones</td>
+                                <td class="py-3 px-6 text-center">$36.60</td>
+                                <td class="py-3 px-6 text-center">$53.70</td>
+                                <td class="py-3 px-6 text-center">$39.90</td>
+                                <td class="py-3 px-6 text-center">$46.30</td>
+                                <td class="py-3 px-6 text-center">$43.00</td>
+                                <td class="py-3 px-6 text-center">$20.74</td>
+                                <td class="py-3 px-6 text-center">$9.17</td>
+                                <td class="py-3 px-6 text-center">$0.00</td>
+                            </tr>
+                            <tr class="table-row-odd">
+                                <td class="py-3 px-6 text-left font-semibold">Migrados Suscripción Especial NG</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">$20.74</td>
+                                <td class="py-3 px-6 text-center">$31.11</td>
+                                <td class="py-3 px-6 text-center">$36.30</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="py-3 px-6 text-left font-semibold">Nuevos Suscripción Especial NG</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">$4.80</td>
+                                <td class="py-3 px-6 text-center">$10.32</td>
+                                <td class="py-3 px-6 text-center">$16.68</td>
+                            </tr>
+                            <tr class="table-row-odd">
+                                <td class="py-3 px-6 text-left font-semibold">Suscripciones módulos NG</td>
+                                <td class="py-3 px-6 text-center">$17.34</td>
+                                <td class="py-3 px-6 text-center">$24.54</td>
+                                <td class="py-3 px-6 text-center">$31.14</td>
+                                <td class="py-3 px-6 text-center">$37.98</td>
+                                <td class="py-3 px-6 text-center">$44.82</td>
+                                <td class="py-3 px-6 text-center">$51.54</td>
+                                <td class="py-3 px-6 text-center">$59.27</td>
+                                <td class="py-3 px-6 text-center">$68.17</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="py-3 px-6 text-left font-semibold">Suscripciones servicios comp</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">$0.96</td>
+                                <td class="py-3 px-6 text-center">$1.50</td>
+                                <td class="py-3 px-6 text-center">$1.92</td>
+                                <td class="py-3 px-6 text-center">$2.30</td>
+                                <td class="py-3 px-6 text-center">$2.21</td>
+                                <td class="py-3 px-6 text-center">$2.11</td>
+                            </tr>
+                            <tr class="table-total-row">
+                                <td class="py-3 px-6 text-left font-bold">Total ingresos</td>
+                                <td class="py-3 px-6 text-center font-bold">$80.10</td>
+                                <td class="py-3 px-6 text-center font-bold">$111.40</td>
+                                <td class="py-3 px-6 text-center font-bold">$108.70</td>
+                                <td class="py-3 px-6 text-center font-bold">$125.80</td>
+                                <td class="py-3 px-6 text-center font-bold">$132.59</td>
+                                <td class="py-3 px-6 text-center font-bold">$100.12</td>
+                                <td class="py-3 px-6 text-center font-bold">$112.08</td>
+                                <td class="py-3 px-6 text-center font-bold">$123.26</td>
+                            </tr>
+                            <!-- Growth rates -->
+                            <tr class="table-row-odd">
+                                <td class="py-3 px-6 text-left font-semibold">Venta de sistemas (% crecimiento)</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">15.07%</td>
+                                <td class="py-3 px-6 text-center">-8.93%</td>
+                                <td class="py-3 px-6 text-center">-10.46%</td>
+                                <td class="py-3 px-6 text-center">-14.69%</td>
+                                <td class="py-3 px-6 text-center">-100.00%</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="py-3 px-6 text-left font-semibold">Actualizaciones (% crecimiento)</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">46.72%</td>
+                                <td class="py-3 px-6 text-center">-25.70%</td>
+                                <td class="py-3 px-6 text-center">16.04%</td>
+                                <td class="py-3 px-6 text-center">-7.13%</td>
+                                <td class="py-3 px-6 text-center">-51.80%</td>
+                                <td class="py-3 px-6 text-center">-55.88%</td>
+                                <td class="py-3 px-6 text-center">-100.00%</td>
+                            </tr>
+                            <tr class="table-row-odd">
+                                <td class="py-3 px-6 text-left font-semibold">Migrados Suscripción Especial NG (% Crecim)</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">--</td>
+                                <td class="py-3 px-6 text-center">50.00%</td>
+                                <td class="py-3 px-6 text-center">16.70%</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="py-3 px-6 text-left font-semibold">Nuevos Suscripción Especial NG (% Crecim)</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">--</td>
+                                <td class="py-3 px-6 text-center">115.00%</td>
+                                <td class="py-3 px-6 text-center">61.50%</td>
+                            </tr>
+                            <tr class="table-row-odd">
+                                <td class="py-3 px-6 text-left font-semibold">Suscripciones módulos NG (% crecimiento)</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">41.52%</td>
+                                <td class="py-3 px-6 text-center">26.89%</td>
+                                <td class="py-3 px-6 text-center">21.97%</td>
+                                <td class="py-3 px-6 text-center">18.01%</td>
+                                <td class="py-3 px-6 text-center">15.00%</td>
+                                <td class="py-3 px-6 text-center">15.00%</td>
+                                <td class="py-3 px-6 text-center">15.00%</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="py-3 px-6 text-left font-semibold">Suscripciones servicios comp (% crecimiento)</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">-</td>
+                                <td class="py-3 px-6 text-center">56.00%</td>
+                                <td class="py-3 px-6 text-center">28.00%</td>
+                                <td class="py-3 px-6 text-center">20.00%</td>
+                                <td class="py-3 px-6 text-center">15.00%</td>
+                                <td class="py-3 px-6 text-center">10.00%</td>
+                            </tr>
+                            <tr class="table-total-row">
+                                <td class="py-3 px-6 text-left font-bold">Total ingresos (% crecimiento)</td>
+                                <td class="py-3 px-6 text-center font-bold">-</td>
+                                <td class="py-3 px-6 text-center font-bold">39.1%</td>
+                                <td class="py-3 px-6 text-center font-bold">-2.4%</td>
+                                <td class="py-3 px-6 text-center font-bold">15.7%</td>
+                                <td class="py-3 px-6 text-center font-bold">5.4%</td>
+                                <td class="py-3 px-6 text-center font-bold">-24.49%</td>
+                                <td class="py-3 px-6 text-center font-bold">11.95%</td>
+                                <td class="py-3 px-6 text-center font-bold">10.00%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card mt-8 p-6 mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Gráfico de Total de Ingresos (2021-2028 - CON Suscripción Especial)</h3>
+                <div class="chart-container">
+                    <canvas id="totalRevenueChartConSuscripcionEspecial"></canvas>
+                </div>
+            </div>
+
+            <div class="card mt-8 p-6">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Gráfico de Proyecciones por Línea de Negocio (2026-2028 - CON Suscripción Especial)</h3>
+                <div class="chart-container">
+                    <canvas id="lineItemProjectionChartConSuscripcionEspecial"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodologies Section -->
+        <section class="mb-12">
+            <h2 class="section-title">Metodologías Empleadas</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card flex items-start">
+                    <span class="icon-large text-blue-500 mr-4">📉</span>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1 text-slate-800">Tendencia Suavizada (Moving Average)</h3>
+                        <p class="text-slate-600">Suaviza crecimientos extremos o caídas bruscas para una proyección más estable.</p>
+                    </div>
+                </div>
+                <div class="card flex items-start">
+                    <span class="icon-large text-blue-500 mr-4">📈</span>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1 text-slate-800">Curva de Madurez de Producto</h3>
+                        <p class="text-slate-600">Estimación por fase del ciclo de vida (introducción, crecimiento, madurez).</p>
+                    </div>
+                </div>
+                <div class="card flex items-start">
+                    <span class="icon-large text-blue-500 mr-4">⚖️</span>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1 text-slate-800">Ley de Rendimientos Decrecientes</h3>
+                        <p class="text-slate-600">A mayor base de ingresos, más difícil es sostener grandes tasas de crecimiento porcentual.</p>
+                    </div>
+                </div>
+                <div class="card flex items-start">
+                    <span class="icon-large text-blue-500 mr-4">📊</span>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1 text-slate-800">Análisis de Cohortes y Churn Controlado</h3>
+                        <p class="text-slate-600">Especialmente aplicado para líneas de suscripción para entender retención.</p>
+                    </div>
+                </div>
+                <div class="card flex items-start col-span-1 md:col-span-2">
+                    <span class="icon-large text-blue-500 mr-4">🎯</span>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1 text-slate-800">Modelo de Proyección Conservadora Ajustada</h3>
+                        <p class="text-slate-600">Equilibra el realismo financiero con las aspiraciones de crecimiento de la empresa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW Section: Metodologías Adicionales y Ejemplos -->
+        <section class="mb-12">
+            <h2 class="section-title">Metodologías Adicionales y Ejemplos</h2>
+
+            <!-- Cohort Revenue Analysis -->
+            <div class="card p-6 mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 flex items-center">
+                    📊 ¿Qué es el Cohort Revenue Analysis?
+                </h3>
+                <p class="text-lg font-semibold text-slate-700 mb-2 flex items-center">
+                    <span class="text-green-500 text-xl mr-2">✅</span> Definición:
+                </p>
+                <p class="text-slate-600 mb-4">
+                    Es un análisis que segmenta a los clientes (o usuarios) en "cohortes" —grupos que comparten una característica en común, generalmente el mes o año de adquisición— y luego evalúa cómo evoluciona su comportamiento y sus ingresos a lo largo del tiempo.
+                </p>
+                <p class="text-lg font-semibold text-slate-700 mb-2 flex items-center">
+                    <span class="text-blue-500 text-xl mr-2">🔍</span> ¿Para qué se usa?
+                </p>
+                <ul class="list-disc list-inside text-slate-600 ml-4 mb-4">
+                    <li>Medir la retención y fidelización de clientes.</li>
+                    <li>Evaluar la duración del ciclo de vida de los ingresos por cliente.</li>
+                    <li>Identificar si los nuevos clientes están generando más o menos ingresos que los cohortes anteriores.</li>
+                    <li>Comparar el valor promedio por cliente (ARPU) entre cohortes.</li>
+                </ul>
+                <p class="text-lg font-semibold text-slate-700 mb-2 flex items-center">
+                    <span class="text-orange-500 text-xl mr-2">📈</span> Ejemplo práctico:
+                </p>
+                <p class="text-slate-600 mb-4">
+                    Supongamos que en:
+                </p>
+                <ul class="list-disc list-inside text-slate-600 ml-4 mb-4">
+                    <li>2022 adquiriste 100 clientes y te generaron $100,000 en ingresos ese año.</li>
+                    <li>En 2023, de esos 100, 80 siguen activos y generan $85,000.</li>
+                    <li>En 2024, aún quedan 65 generando $70,000.</li>
+                </ul>
+                <p class="text-slate-600 mb-4">
+                    Esa es la cohorte 2022, y su evolución te muestra su retención e ingresos a largo plazo.
+                </p>
+                <p class="text-lg font-semibold text-slate-700 mb-2 flex items-center">
+                    <span class="text-purple-500 text-xl mr-2">🧠</span> ¿Por qué es útil?
+                </p>
+                <ul class="list-disc list-inside text-slate-600 ml-4">
+                    <li>Muestra la calidad del crecimiento: no es lo mismo crecer por nuevos clientes que por retención saludable.</li>
+                    <li>Permite construir proyecciones sólidas de ingresos recurrentes, ajustadas por cancelaciones, upgrades o churn.</li>
+                    <li>En empresas SaaS o con modelos de suscripción, es clave para evaluar LTV (valor del cliente a largo plazo).</li>
+                </ul>
+            </div>
+
+            <!-- Bottom-Up Forecasting -->
+            <div class="card p-6 mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 flex items-center">
+                    📦 ¿Qué es el enfoque Bottom-Up Forecasting?
+                </h3>
+                <p class="text-lg font-semibold text-slate-700 mb-2 flex items-center">
+                    <span class="text-green-500 text-xl mr-2">✅</span> Definición:
+                </p>
+                <p class="text-slate-600 mb-4">
+                    Es una metodología de proyección en la que se parte de componentes pequeños y específicos (por ejemplo, clientes, usuarios, unidades, tickets promedio) y se construye desde abajo hacia arriba una estimación global de ingresos, costos o crecimiento.
+                </p>
+                <p class="text-lg font-semibold text-slate-700 mb-2 flex items-center">
+                    <span class="text-blue-500 text-xl mr-2">🧮</span> ¿Cómo funciona?
+                </p>
+                <p class="text-slate-600 mb-4">
+                    En vez de decir "esperamos crecer 15% este año", haces esto:
+                </p>
+                <ul class="list-disc list-inside text-slate-600 ml-4 mb-4">
+                    <li>Calculas cuántos clientes nuevos puedes captar por canal.</li>
+                    <li>Estimas el ticket promedio de cada tipo de producto o servicio.</li>
+                    <li>Estimas la frecuencia de compra o duración de contrato.</li>
+                    <li>Proyectas la suma total.</li>
+                </ul>
+                <p class="text-lg font-semibold text-slate-700 mb-2 flex items-center">
+                    <span class="text-orange-500 text-xl mr-2">Ejemplo:</span>
+                </p>
+                <ul class="list-disc list-inside text-slate-600 ml-4 mb-4">
+                    <li>50 nuevos clientes por mes.</li>
+                    <li>Cada uno paga $1,000 al mes.</li>
+                    <li>Estancia promedio: 12 meses.</li>
+                </ul>
+                <p class="text-slate-600 mb-4">
+                    Entonces:
+                </p>
+                <p class="text-slate-700 font-bold text-lg mb-4">
+                    Ingresos esperados por esa cohorte = 50 × $1,000 × 12 = $600,000
+                </p>
+                <p class="text-lg font-semibold text-slate-700 mb-2 flex items-center">
+                    <span class="text-purple-500 text-xl mr-2">🧠</span> ¿Por qué es útil?
+                </p>
+                <ul class="list-disc list-inside text-slate-600 ml-4">
+                    <li>Es más preciso que estimar top-down (desde un total arbitrario).</li>
+                    <li>Da visibilidad de los drivers reales del negocio.</li>
+                    <li>Es más defendible ante CFOs o inversionistas, porque cada cifra tiene una base cuantificable.</li>
+                </ul>
+            </div>
+
+            <!-- Key Difference Table -->
+            <div class="card p-6">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 flex items-center">
+                    📌 Diferencia clave entre Cohort Analysis y Bottom-Up:
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <thead>
+                            <tr class="table-header">
+                                <th class="py-3 px-6 text-left">Concepto</th>
+                                <th class="py-3 px-6 text-left">Cohort Analysis</th>
+                                <th class="py-3 px-6 text-left">Bottom-Up Forecast</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700 text-sm font-light">
+                            <tr class="table-row-odd">
+                                <td class="py-3 px-6 text-left font-semibold">¿Qué analiza?</td>
+                                <td class="py-3 px-6 text-left">Comportamiento de grupos de clientes a lo largo del tiempo</td>
+                                <td class="py-3 px-6 text-left">Proyección de ingresos basada en componentes detallados</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="py-3 px-6 text-left font-semibold">Enfoque</td>
+                                <td class="py-3 px-6 text-left">Histórico (medición)</td>
+                                <td class="py-3 px-6 text-left">Prospectivo (planeación)</td>
+                            </tr>
+                            <tr class="table-row-odd">
+                                <td class="py-3 px-6 text-left font-semibold">Uso común</td>
+                                <td class="py-3 px-6 text-left">Medir retención y valor del cliente</td>
+                                <td class="py-3 px-6 text-left">Estimar ingresos o demanda futura</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="py-3 px-6 text-left font-semibold">Base de cálculo</td>
+                                <td class="py-3 px-6 text-left">Clientes agrupados por fecha de ingreso</td>
+                                <td class="py-3 px-6 text-left">Unidades, tickets, tasas de conversión</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion for CFO Section -->
+        <section class="mb-12">
+            <h2 class="section-title">Conclusión para el CFO</h2>
+            <div class="card bg-gradient-blue text-white p-8">
+                <p class="text-2xl font-semibold mb-4">
+                    Las proyecciones presentadas se basan en una <span class="font-bold">lógica de negocio realista, conservadora y estratégica para Microsip.</span>
+                </p>
+                <ul class="list-disc list-inside text-lg mb-6">
+                    <li>Consideran el historial de comportamiento y los cambios estructurales en el modelo de ingresos.</li>
+                    <li>Reflejan los ritmos naturales de saturación y expansión del mercado.</li>
+                    <li>El eje central es la estabilización y crecimiento de los ingresos recurrentes.</li>
+                </ul>
+                <p class="text-xl font-light">
+                    Estas estimaciones son consistenttes con modelos de empresas SaaS maduras y permitirán una <span class="font-bold">mejor planificación de recursos, inversiones y metas realistas</span> para los próximos años.
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-slate-500 text-sm mt-12">
+            <p>&copy; 2025 Microsip. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        async function summarizeJustification(justificationId, summaryId, buttonElement) {
+            const justificationTextElement = document.getElementById(justificationId);
+            const summaryBoxElement = document.getElementById(summaryId);
+            const originalButtonText = buttonElement.innerHTML;
+
+            // Show loading indicator
+            summaryBoxElement.innerHTML = '<p class="text-center">Cargando resumen... ✨</p>';
+            summaryBoxElement.classList.remove('hidden');
+            buttonElement.disabled = true;
+            buttonElement.innerHTML = 'Cargando...';
+
+            const justificationText = justificationTextElement.innerText;
+            const prompt = `Resume de forma concisa el siguiente texto de justificación financiera, enfocándote en los puntos clave de la proyección y su razonamiento, en español: "${justificationText}"`;
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    summaryBoxElement.innerHTML = `<p>${text}</p>`;
+                } else {
+                    summaryBoxElement.innerHTML = '<p class="text-red-600">Error: No se pudo generar el resumen. Inténtalo de nuevo.</p>';
+                }
+            } catch (error) {
+                console.error('Error al llamar a la API de Gemini:', error);
+                summaryBoxElement.innerHTML = '<p class="text-red-600">Error de conexión. Por favor, verifica tu red.</p>';
+            } finally {
+                buttonElement.disabled = false;
+                buttonElement.innerHTML = originalButtonText;
+            }
+        }
+
+        // Common years for charts
+        const years = ['2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028'];
+
+        // Chart Data - PROYECCIÓN SIN SUSCRIPCIÓN ESPECIAL
+        const dataSinSuscripcionEspecial = {
+            'Venta de sistemas': {
+                values: [14.60, 16.80, 15.30, 13.70, 11.69, 10.52, 10.52, 10.52],
+                growth: ['', '15.07%', '-8.93%', '-10.46%', '-14.69%', '-10.00%', '-10.00%', '-10.00%']
+            },
+            'Actualizaciones': {
+                values: [36.60, 53.70, 39.90, 46.30, 43.00, 39.13, 39.13, 39.13],
+                growth: ['', '46.72%', '-25.70%', '16.04%', '-7.13%', '-9.00%', '-9.00%', '-9.00%']
+            },
+            'Suscripciones módulos NG': {
+                values: [17.34, 24.54, 31.14, 37.98, 44.82, 51.09, 57.23, 62.95],
+                growth: ['', '41.52%', '26.89%', '21.97%', '18.01%', '14.00%', '12.00%', '10.00%']
+            },
+            'Suscripciones servicios comp': {
+                values: [0, 0, 0.96, 1.50, 1.92, 2.30, 2.21, 2.11],
+                growth: ['', '', '', '56.00%', '28.00%', '20.00%', '15.00%', '10.00%']
+            },
+            'Total ingresos': {
+                values: [80.10, 111.40, 108.70, 125.80, 132.59, 103.05, 109.08, 114.71],
+                growth: ['', '39.1%', '-2.4%', '15.7%', '5.4%', '-22.3%', '5.9%', '5.2%']
+            }
+        };
+
+        // Chart Data - PROYECCIÓN CON SUSCRIPCIÓN ESPECIAL (from provided image/table)
+        const dataConSuscripcionEspecial = {
+            'Venta de sistemas': {
+                values: [14.60, 16.80, 15.30, 13.70, 11.69, 0.00, 0.00, 0.00], // Corrected values for 2026-2028
+                growth: ['', '15.07%', '-8.93%', '-10.46%', '-14.69%', '-100.00%', '-', '-'] // Corrected growth rates
+            },
+            'Actualizaciones': {
+                values: [36.60, 53.70, 39.90, 46.30, 43.00, 20.74, 9.17, 0.00], // Corrected values for 2026-2028
+                growth: ['', '46.72%', '-25.70%', '16.04%', '-7.13%', '-51.80%', '-55.88%', '-100.00%'] // Corrected growth rates
+            },
+            'Migrados Suscripción Especial NG': {
+                values: [0, 0, 0, 0, 0, 20.74, 31.11, 36.30],
+                growth: ['', '', '', '', '', '', '50.00%', '16.70%']
+            },
+            'Nuevos Suscripción Especial NG': {
+                values: [0, 0, 0, 0, 0, 4.80, 10.32, 16.68],
+                growth: ['', '', '', '', '', '', '115.00%', '61.50%']
+            },
+            'Suscripciones módulos NG': {
+                values: [17.34, 24.54, 31.14, 37.98, 44.82, 51.54, 59.27, 68.17],
+                growth: ['', '41.52%', '26.89%', '21.97%', '18.01%', '15.00%', '15.00%', '15.00%']
+            },
+            'Suscripciones servicios comp': {
+                values: [0, 0, 0.96, 1.50, 1.92, 2.30, 2.21, 2.11],
+                growth: ['', '', '', '56.00%', '28.00%', '20.00%', '15.00%', '10.00%']
+            },
+            'Total ingresos': {
+                values: [80.10, 111.40, 108.70, 125.80, 132.59, 100.12, 112.08, 123.26], // Recalculated total
+                growth: ['', '39.1%', '-2.4%', '15.7%', '5.4%', '-24.49%', '11.95%', '10.00%'] // Recalculated growth
+            }
+        };
+
+
+        // Function to create Total Revenue Chart (PROYECCIÓN SIN SUSCRIPCIÓN ESPECIAL)
+        function createTotalRevenueChartSinSuscripcionEspecial() {
+            const ctx = document.getElementById('totalRevenueChartSinSuscripcionEspecial').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: [{
+                        label: 'Total Ingresos (Millones de Pesos)',
+                        data: dataSinSuscripcionEspecial['Total ingresos'].values,
+                        borderColor: '#3b82f6', /* Blue 500 */
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Total de Ingresos Anuales (Millones de Pesos - SIN Suscripción Especial)',
+                            font: {
+                                size: 18,
+                                weight: 'bold'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        // Format as Mexican Pesos
+                                        label += new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Ingresos (Millones de Pesos)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Año'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Function to create Line Item Projection Chart (PROYECCIÓN SIN SUSCRIPCIÓN ESPECIAL)
+        function createLineItemProjectionChartSinSuscripcionEspecial() {
+            const ctx = document.getElementById('lineItemProjectionChartSinSuscripcionEspecial').getContext('2d');
+            const projectedYears = ['2026', '2027', '2028'];
+            const projectedData = {
+                'Venta de sistemas': dataSinSuscripcionEspecial['Venta de sistemas'].values.slice(-3),
+                'Actualizaciones': dataSinSuscripcionEspecial['Actualizaciones'].values.slice(-3),
+                'Suscripciones módulos NG': dataSinSuscripcionEspecial['Suscripciones módulos NG'].values.slice(-3),
+                'Suscripciones servicios comp': dataSinSuscripcionEspecial['Suscripciones servicios comp'].values.slice(-3)
+            };
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: projectedYears,
+                    datasets: [
+                        {
+                            label: 'Venta de sistemas',
+                            data: projectedData['Venta de sistemas'],
+                            backgroundColor: '#ef4444', /* Red 500 */
+                        },
+                        {
+                            label: 'Actualizaciones',
+                            data: projectedData['Actualizaciones'],
+                            backgroundColor: '#f97316', /* Orange 500 */
+                        },
+                        {
+                            label: 'Suscripciones módulos NG',
+                            data: projectedData['Suscripciones módulos NG'],
+                            backgroundColor: '#3b82f6', /* Blue 500 */
+                        },
+                        {
+                            label: 'Suscripciones servicios comp',
+                            data: projectedData['Suscripciones servicios comp'],
+                            backgroundColor: '#8b5cf6', /* Purple 500 */
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Proyecciones por Línea de Negocio (2026-2028 - Millones de Pesos - SIN Suscripción Especial)',
+                            font: {
+                                size: 18,
+                                weight: 'bold'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        // Format as Mexican Pesos
+                                        label += new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            stacked: true,
+                            title: {
+                                display: true,
+                                text: 'Año'
+                            }
+                        },
+                        y: {
+                            stacked: true,
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Ingresos (Millones de Pesos)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Function to create Total Revenue Chart (PROYECCIÓN CON SUSCRIPCIÓN ESPECIAL)
+        function createTotalRevenueChartConSuscripcionEspecial() {
+            const ctx = document.getElementById('totalRevenueChartConSuscripcionEspecial').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: [{
+                        label: 'Total Ingresos (Millones de Pesos - CON Suscripción Especial)',
+                        data: dataConSuscripcionEspecial['Total ingresos'].values,
+                        borderColor: '#22c55e', /* Green 500 */
+                        backgroundColor: 'rgba(34, 197, 94, 0.2)',
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Total de Ingresos Anuales (Millones de Pesos - CON Suscripción Especial)',
+                            font: {
+                                size: 18,
+                                weight: 'bold'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Ingresos (Millones de Pesos)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Año'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Function to create Line Item Projection Chart (PROYECCIÓN CON SUSCRIPCIÓN ESPECIAL)
+        function createLineItemProjectionChartConSuscripcionEspecial() {
+            const ctx = document.getElementById('lineItemProjectionChartConSuscripcionEspecial').getContext('2d');
+            const projectedYears = ['2026', '2027', '2028'];
+            const projectedData = {
+                'Venta de sistemas': dataConSuscripcionEspecial['Venta de sistemas'].values.slice(-3),
+                'Actualizaciones': dataConSuscripcionEspecial['Actualizaciones'].values.slice(-3),
+                'Migrados Suscripción Especial NG': dataConSuscripcionEspecial['Migrados Suscripción Especial NG'].values.slice(-3),
+                'Nuevos Suscripción Especial NG': dataConSuscripcionEspecial['Nuevos Suscripción Especial NG'].values.slice(-3),
+                'Suscripciones módulos NG': dataConSuscripcionEspecial['Suscripciones módulos NG'].values.slice(-3),
+                'Suscripciones servicios comp': dataConSuscripcionEspecial['Suscripciones servicios comp'].values.slice(-3)
+            };
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: projectedYears,
+                    datasets: [
+                        {
+                            label: 'Venta de sistemas',
+                            data: projectedData['Venta de sistemas'],
+                            backgroundColor: '#ef4444', /* Red 500 */
+                        },
+                        {
+                            label: 'Actualizaciones',
+                            data: projectedData['Actualizaciones'],
+                            backgroundColor: '#f97316', /* Orange 500 */
+                        },
+                        {
+                            label: 'Migrados Suscripción Especial NG',
+                            data: projectedData['Migrados Suscripción Especial NG'],
+                            backgroundColor: '#10b981', /* Emerald 500 - new color */
+                        },
+                        {
+                            label: 'Nuevos Suscripción Especial NG',
+                            data: projectedData['Nuevos Suscripción Especial NG'],
+                            backgroundColor: '#06b6d4', /* Cyan 500 - new color */
+                        },
+                        {
+                            label: 'Suscripciones módulos NG',
+                            data: projectedData['Suscripciones módulos NG'],
+                            backgroundColor: '#3b82f6', /* Blue 500 */
+                        },
+                        {
+                            label: 'Suscripciones servicios comp',
+                            data: projectedData['Suscripciones servicios comp'],
+                            backgroundColor: '#8b5cf6', /* Purple 500 */
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Proyecciones por Línea de Negocio (2026-2028 - Millones de Pesos - CON Suscripción Especial)',
+                            font: {
+                                size: 18,
+                                weight: 'bold'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            stacked: true,
+                            title: {
+                                display: true,
+                                text: 'Año'
+                            }
+                        },
+                        y: {
+                            stacked: true,
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Ingresos (Millones de Pesos)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize charts when the window loads
+        window.onload = function() {
+            createTotalRevenueChartSinSuscripcionEspecial();
+            createLineItemProjectionChartSinSuscripcionEspecial();
+            createTotalRevenueChartConSuscripcionEspecial();
+            createLineItemProjectionChartConSuscripcionEspecial();
+        };
+    </script>
+
+</body>
+</html>
